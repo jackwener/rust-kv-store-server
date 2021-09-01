@@ -1,18 +1,43 @@
 use std::collections::{HashMap};
+use std::path::PathBuf;
+use std::fs::{self, File, OpenOptions};
 
 pub struct KVStore {
-    map: HashMap<String, String>,
+    path: PathBuf,
+    file: File,
+    cursor: u64,
+    threshold: u64,
+    map: HashMap<String, u64>,
 }
 
 impl KVStore {
-    pub fn new() -> KVStore {
-        KVStore {
-            map: HashMap::new(),
-        }
+    pub fn new() -> Result<KVStore> {
+        KVStore {}
     }
 
-    pub fn put(&mut self, key: String, value: String) {
-        self.map.insert(key, value);
+    pub fn open(path: impl Into<PathBuf>) -> Result<KVStore> {
+        let path = path.into();
+        std::fs::create_dir_all(&path)?;
+
+        let log = path.join("log");
+        let mut log_file = OpenOptions(path)
+            .create(true)
+            .read(true)
+            .write(true)
+            .open(log);
+
+        let mut mem_table = HashMap::new();
+        let mut cursor = 0: u64;
+
+    }
+
+    pub fn put(&mut self, key: String, value: String)  {
+        // 获取当前
+        let file_id := self;
+
+        let ts = time();
+
+
     }
 
     pub fn get(&self, key: String) -> Option<String> {
