@@ -3,4 +3,5 @@ mod hash_tree;
 mod client;
 mod server;
 mod engines;
+mod error;
 
