@@ -1,6 +1,7 @@
 use std::collections::{HashMap};
 use std::path::PathBuf;
 use std::fs::{self, File, OpenOptions};
+use crate::error::Result；
 
 pub struct KVStore {
     path: PathBuf,
@@ -33,7 +34,7 @@ impl KVStore {
 
     pub fn put(&mut self, key: String, value: String)  {
         // 获取当前
-        let file_id := self;
+        let file_id = self;
 
         let ts = time();
 
