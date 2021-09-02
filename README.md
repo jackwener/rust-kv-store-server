@@ -1,1 +1,1 @@
-# pingcap-talent-plan
+# rust KV Store Server
