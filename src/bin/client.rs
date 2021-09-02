@@ -1,5 +1,7 @@
+use kvs::Result;
+
 struct Opt {
-    command: Command
+    command: Command,
 }
 
 enum Command {
@@ -7,7 +9,6 @@ enum Command {
     Set,
     Remove,
 }
-
 
 fn main() {
     let opt = Opt;
@@ -17,7 +18,7 @@ fn main() {
     }
 }
 
-fn run(opt: Opt) -> Result<> {
+fn run(opt: Opt) -> Result<()> {
     match opt.command {
         Command::Get => {}
         Command::Set => {}

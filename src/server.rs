@@ -1,11 +1,10 @@
+use crate::common::{GetResponse, Request, SetResponse};
 use crate::engines::KVEngine;
-use crate::common::{Request, GetResponse, SetResponse};
-use crate::error::{Result};
-use std::net::{TcpListener, ToSocketAddrs, TcpStream};
-use std::io::{BufReader, BufWriter, Write};
-use serde_json::Deserializer;
+use crate::error::Result;
 use log::{debug, error};
-
+use serde_json::Deserializer;
+use std::io::{BufReader, BufWriter, Write};
+use std::net::{TcpListener, TcpStream, ToSocketAddrs};
 
 pub struct KVServer<Engine: KVEngine> {
     engine: Engine,
@@ -67,4 +66,3 @@ impl<Engine: KVEngine> KVServer<Engine> {
         Ok(())
     }
 }
-

@@ -1,7 +1,8 @@
-mod kv;
+pub use error::Result;
+
 mod client;
-mod server;
+mod common;
 mod engines;
 mod error;
-mod common;
-
+mod kv;
+mod server;

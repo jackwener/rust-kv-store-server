@@ -1,8 +1,7 @@
-use crate::error::{Result}
+use crate::error::Result;
 use serde_json::de::{Deserializer, IoRead};
 use std::io::{BufReader, BufWriter};
 use std::net::{TcpStream, ToSocketAddrs};
-
 
 pub struct KVClient {
     reader: Deserializer<IoRead<BufReader<TcpStream>>>,
@@ -19,17 +18,11 @@ impl KVClient {
         })
     }
 
-    pub fn get(key: String) ->Result<Option<String>>{
+    pub fn get(key: String) -> Result<Option<String>> {}
 
-
-    }
-
-    pub fn set(key: String, value: String) -> Result<()>{
-
+    pub fn set(key: String, value: String) -> Result<()> {
         Ok(())
     }
 
-    pub fn remove(key:String) -> Result<()> {
-
-    }
+    pub fn remove(key: String) -> Result<()> {}
 }

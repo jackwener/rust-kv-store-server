@@ -1,7 +1,7 @@
-use std::collections::{HashMap};
-use std::path::PathBuf;
+use crate::error::Result;
+use std::collections::HashMap;
 use std::fs::{self, File, OpenOptions};
-use crate::error::Result；
+use std::path::PathBuf;
 
 pub struct KVStore {
     path: PathBuf,
@@ -29,16 +29,13 @@ impl KVStore {
 
         let mut mem_table = HashMap::new();
         let mut cursor = 0: u64;
-
     }
 
-    pub fn put(&mut self, key: String, value: String)  {
+    pub fn put(&mut self, key: String, value: String) {
         // 获取当前
         let file_id = self;
 
         let ts = time();
-
-
     }
 
     pub fn get(&self, key: String) -> Option<String> {
